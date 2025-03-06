@@ -31,11 +31,11 @@
 ### VPS专用一键脚本如下：快捷方式：```sb```
 ### (注意：serv00不可用，请继续往下翻)
 ```
-bash <(curl -Ls https://raw.githubusercontent.com/yonggekkk/sing-box-yg/main/sb.sh)
+bash <(curl -Ls https://raw.githubusercontent.com/fjnpzh/sing-box-yg/main/sb.sh)
 ```
 或者
 ```
-bash <(wget -qO- https://raw.githubusercontent.com/yonggekkk/sing-box-yg/main/sb.sh)
+bash <(wget -qO- https://raw.githubusercontent.com/fjnpzh/sing-box-yg/main/sb.sh)
 ```
 
 ### Sing-box-yg脚本界面预览图（注：相关参数随意填写，仅供围观）
@@ -71,7 +71,7 @@ bash <(wget -qO- https://raw.githubusercontent.com/yonggekkk/sing-box-yg/main/sb
 ### 快捷方式：```sb```
 
 ```
-bash <(curl -Ls https://raw.githubusercontent.com/yonggekkk/sing-box-yg/main/serv00.sh)
+bash <(curl -Ls https://raw.githubusercontent.com/fjnpzh/sing-box-yg/main/serv00.sh)
 ```
 
 #### Serv00-sb-yg脚本界面预览图，仅限方案一的SSH端安装脚本（注：仅供围观）
@@ -92,7 +92,7 @@ bash <(curl -Ls https://raw.githubusercontent.com/yonggekkk/sing-box-yg/main/ser
 * 也可以手动放在其他目录，做好cron定时运行
 
 ```
-curl -sSL https://raw.githubusercontent.com/yonggekkk/sing-box-yg/main/kp.sh -o kp.sh && chmod +x kp.sh && nano kp.sh
+curl -sSL https://raw.githubusercontent.com/fjnpzh/sing-box-yg/main/kp.sh -o kp.sh && chmod +x kp.sh && nano kp.sh
 ```
 
 ### 注意：方案二serv00.yml与方案三kp.sh都为"强制保活脚本"，就算Serv00清空你服务器上所有文件(到目前为止从没发生过)，只要让你连接成功，就会自动安装脚本保活，保持不死状态
