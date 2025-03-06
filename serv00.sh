@@ -55,7 +55,7 @@ read_reym() {
         if [[ -z "$reym" ]]; then
 	    reym=$USERNAME.serv00.net
 	elif [[ "$reym" == "s" || "$reym" == "S" ]]; then
-	    reym=time.is
+	    reym=www.speedtest.net
         fi
 	green "你的reality域名为: $reym"
 }
