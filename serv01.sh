@@ -336,8 +336,8 @@ output=$(./"$(basename ${FILE_MAP[web]})" generate reality-keypair)
 private_key=$(echo "${output}" | awk '/PrivateKey:/ {print $2}')
 public_key=$(echo "${output}" | awk '/PublicKey:/ {print $2}')
 
-private_key=yJFnJzWgLgGzLrpzg2VQifRNKW0_XlvUnlf4ZDxqvks
-public_key=U_vTHEtxu7Jdr0kfeKc7YWFZvfZ--SL5AkZP8yiZSVI
+#private_key=yJFnJzWgLgGzLrpzg2VQifRNKW0_XlvUnlf4ZDxqvks
+#public_key=U_vTHEtxu7Jdr0kfeKc7YWFZvfZ--SL5AkZP8yiZSVI
 
 echo "${private_key}" > private_key.txt
 echo "${public_key}" > public_key.txt
