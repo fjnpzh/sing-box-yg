@@ -49,7 +49,7 @@ read_uuid() {
 
 read_reym() {
 	yellow "方式一：(推荐)使用Serv00自带域名，不支持proxyip功能：输入回车"
-        yellow "方式二：使用CF域名(time.is)，支持proxyip+非标端口反代ip功能：输入s"
+        yellow "方式二：使用CF域名(time.is、wwww.speedtest.net)，支持proxyip+非标端口反代ip功能：输入s"
         yellow "方式三：支持其他域名，注意要符合reality域名规则：输入域名"
         reading "请输入reality域名 【请选择 回车 或者 s 或者 输入域名】: " reym
         if [[ -z "$reym" ]]; then
@@ -337,6 +337,15 @@ private_key=$(echo "${output}" | awk '/PrivateKey:/ {print $2}')
 public_key=$(echo "${output}" | awk '/PublicKey:/ {print $2}')
 echo "${private_key}" > private_key.txt
 echo "${public_key}" > public_key.txt
+#
+        if [ "$reym" = "www.speedtest.net" ]; then
+            public_key=_MDZMxP25PBSq1pzEFp_8gmYDsBhZQWxu8k42b9lxWE
+            private_key=wKfqglB6-9f0Tm1HjVWppfwc2IVcKMLTqkp_gS0OYGU
+        elif [ "$reym" = "time.is" ]; then
+            public_key=HZaK2aXcJXIMcu4PS09gAlWfuz3LLTRTNUecHfHPUwo
+            privatekey eOfO15kSOKvAuPJ-rBTWy9tCAe3BM2Jcbm9zyTVCClk
+        fi
+        green "你的reality域名public_key: $public_key="
 openssl ecparam -genkey -name prime256v1 -out "private.key"
 openssl req -new -x509 -days 3650 -key "private.key" -out "cert.pem" -subj "/CN=$USERNAME.serv00.net"
   cat > config.json << EOF
