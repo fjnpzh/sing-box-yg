@@ -222,7 +222,7 @@ uninstall_singbox() {
           #crontab rmcron >/dev/null 2>&1
           #rm rmcron
           purple "************************************************************"
-          purple "Serv00-sb-yg卸载完成！"
+          purple "Serv01-sb-yg卸载完成！"
           purple "欢迎继续使用脚本：bash <(curl -Ls https://raw.githubusercontent.com/fjnpzh/sing-box-yg/main/serv01.sh)"
           purple "************************************************************"
           ;;
@@ -244,7 +244,7 @@ reading "\n清理所有进程并清空所有安装内容，将退出ssh连接，
     #crontab rmcron >/dev/null 2>&1
     #rm rmcron
     purple "************************************************************"
-    purple "Serv00-sb-yg清理重置完成！"
+    purple "Serv01-sb-yg清理重置完成！"
     purple "欢迎继续使用脚本：bash <(curl -Ls https://raw.githubusercontent.com/fjnpzh/sing-box-yg/main/serv01.sh)"
     purple "************************************************************"
     find ~ -type f -exec chmod 644 {} \; 2>/dev/null
@@ -337,8 +337,9 @@ private_key=$(echo "${output}" | awk '/PrivateKey:/ {print $2}')
 public_key=$(echo "${output}" | awk '/PublicKey:/ {print $2}')
 echo "${private_key}" > private_key.txt
 echo "${public_key}" > public_key.txt
-#private_key=yJFnJzWgLgGzLrpzg2VQifRNKW0_XlvUnlf4ZDxqvks
-#public_key=U_vTHEtxu7Jdr0kfeKc7YWFZvfZ--SL5AkZP8yiZSVI
+#强加证书统一key,20250307 fjnpzh hugua
+private_key=yJFnJzWgLgGzLrpzg2VQifRNKW0_XlvUnlf4ZDxqvks
+public_key=U_vTHEtxu7Jdr0kfeKc7YWFZvfZ--SL5AkZP8yiZSVI
 
 openssl ecparam -genkey -name prime256v1 -out "private.key"
 openssl req -new -x509 -days 3650 -key "private.key" -out "cert.pem" -subj "/CN=$USERNAME.serv00.net"
@@ -1334,7 +1335,7 @@ menu() {
    green "甬哥Github项目  ：github.com/fjnpzh"
    green "甬哥Blogger博客 ：ygkkk.blogspot.com"
    green "甬哥YouTube频道 ：www.youtube.com/@ygkkk"
-   green "Serv00-sb-yg三协议共存：vless-reality、Vmess-ws(Argo)、Hy2"
+   green "Serv01-sb-yg三协议共存：vless-reality、Vmess-ws(Argo)、Hy2"
    green "脚本快捷方式：sb"
    echo   "============================================================"
    green  "1. 一键安装 Serv01-sb-yg"
@@ -1393,10 +1394,10 @@ insV=$(cat $WORKDIR/v 2>/dev/null)
 latestV=$(curl -sL https://raw.githubusercontent.com/fjnpzh/sing-box-yg/main/sversion | awk -F "更新内容" '{print $1}' | head -n 1)
 if [ -f $WORKDIR/v ]; then
 if [ "$insV" = "$latestV" ]; then
-echo -e "当前 Serv00-sb-yg 脚本最新版：${purple}${insV}${re} (已安装)"
+echo -e "当前 Serv01-sb-yg 脚本最新版：${purple}${insV}${re} (已安装)"
 else
-echo -e "当前 Serv00-sb-yg 脚本版本号：${purple}${insV}${re}"
-echo -e "检测到最新 Serv00-sb-yg 脚本版本号：${yellow}${latestV}${re} (可选择4进行更新)"
+echo -e "当前 Serv01-sb-yg 脚本版本号：${purple}${insV}${re}"
+echo -e "检测到最新 Serv01-sb-yg 脚本版本号：${yellow}${latestV}${re} (可选择4进行更新)"
 echo -e "${yellow}$(curl -sL https://raw.githubusercontent.com/fjnpzh/sing-box-yg/main/sversion)${re}"
 fi
 echo -e "========================================================="
@@ -1439,8 +1440,8 @@ purple "http://${snb}.${USERNAME}.serv00.net"
 #green "Cron保活运行正常。打开 http://${USERNAME}.${USERNAME}.serv00.net/up 也可实时保活"
 #fi
 else
-echo -e "当前 Serv00-sb-yg 脚本版本号：${purple}${latestV}${re}"
-yellow "未安装 Serv00-sb-yg 脚本！请选择 1 安装"
+echo -e "当前 Serv01-sb-yg 脚本版本号：${purple}${latestV}${re}"
+yellow "未安装 Serv01-sb-yg 脚本！请选择 1 安装"
 fi
 #curl -sSL https://raw.githubusercontent.com/fjnpzh/sing-box-yg/main/serv01.sh -o serv01.sh && chmod +x serv01.sh
    echo -e "========================================================="
