@@ -223,7 +223,7 @@ uninstall_singbox() {
           #rm rmcron
           purple "************************************************************"
           purple "Serv00-sb-yg卸载完成！"
-          purple "欢迎继续使用脚本：bash <(curl -Ls https://raw.githubusercontent.com/yonggekkk/sing-box-yg/main/serv00.sh)"
+          purple "欢迎继续使用脚本：bash <(curl -Ls https://raw.githubusercontent.com/fjnpzh/sing-box-yg/main/sev01.sh)"
           purple "************************************************************"
           ;;
         [Nn]) exit 0 ;;
@@ -245,7 +245,7 @@ reading "\n清理所有进程并清空所有安装内容，将退出ssh连接，
     #rm rmcron
     purple "************************************************************"
     purple "Serv00-sb-yg清理重置完成！"
-    purple "欢迎继续使用脚本：bash <(curl -Ls https://raw.githubusercontent.com/yonggekkk/sing-box-yg/main/serv00.sh)"
+    purple "欢迎继续使用脚本：bash <(curl -Ls https://raw.githubusercontent.com/fjnpzh/sing-box-yg/main/sev01.sh)"
     purple "************************************************************"
     find ~ -type f -exec chmod 644 {} \; 2>/dev/null
     find ~ -type d -exec chmod 755 {} \; 2>/dev/null
@@ -1291,7 +1291,7 @@ if [[ -e $WORKDIR/config.json ]]; then
       echo "export PATH=\"\$HOME/bin:\$PATH\"" >> "$HOME/.bashrc"
       source "$HOME/.bashrc"
   fi
-curl -sL https://raw.githubusercontent.com/yonggekkk/sing-box-yg/main/app.js -o "$keep_path"/app.js
+curl -sL https://raw.githubusercontent.com/fjnpzh/sing-box-yg/main/app.js -o "$keep_path"/app.js
 sed -i '' "15s/name/$snb/g" "$keep_path"/app.js
 sed -i '' "60s/key/$UUID/g" "$keep_path"/app.js
 sed -i '' "75s/name/$USERNAME/g" "$keep_path"/app.js
