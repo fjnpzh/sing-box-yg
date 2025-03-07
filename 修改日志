@@ -1,0 +1,26 @@
+替换 icook.hk 为 www.web.com
+替换 yonggekkk/sing-box-yg 为 yonggekkk/fjnpzh
+替换 serv00.sh 为 serv01.sh
+
+#time.is  固定证书 hugua 2025
+
+public_key=HZaK2aXcJXIMcu4PS09gAlWfuz3LLTRTNUecHfHPUwo
+privatekey eOfO15kSOKvAuPJ-rBTWy9tCAe3BM2Jcbm9zyTVCClk
+
+#www.speedtest.net固定证书  hugua 2025
+
+public_key=_MDZMxP25PBSq1pzEFp_8gmYDsBhZQWxu8k42b9lxWE
+private_key=wKfqglB6-9f0Tm1HjVWppfwc2IVcKMLTqkp_gS0OYGU
+
+output=$(./"$(basename ${FILE_MAP[web]})" generate reality-keypair)
+private_key=$(echo "${output}" | awk '/PrivateKey:/ {print $2}')
+public_key=$(echo "${output}" | awk '/PublicKey:/ {print $2}')
+echo "${private_key}" > private_key.txt
+echo "${public_key}" > public_key.txt
+
+        if [[ -z "$reym" ]]; then
+	    reym=$USERNAME.serv00.net
+	elif [[ "$reym" == "s" || "$reym" == "S" ]]; then
+	    reym=www.speedtest.net
+        fi
+	green "你的reality域名为: $reym"
