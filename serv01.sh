@@ -335,8 +335,7 @@ wait
 output=$(./"$(basename ${FILE_MAP[web]})" generate reality-keypair)
 private_key=$(echo "${output}" | awk '/PrivateKey:/ {print $2}')
 public_key=$(echo "${output}" | awk '/PublicKey:/ {print $2}')
-echo "${private_key}" > private_key.txt
-echo "${public_key}" > public_key.txt
+
 
 #指定证书 hugua 20250307
         if [ "$reym" = "www.speedtest.net" ]; then
@@ -346,8 +345,12 @@ echo "${public_key}" > public_key.txt
             public_key=HZaK2aXcJXIMcu4PS09gAlWfuz3LLTRTNUecHfHPUwo
             private_key=eOfO15kSOKvAuPJ-rBTWy9tCAe3BM2Jcbm9zyTVCClk
         fi
-	
-        green "你的reality域名public_key: $public_key="
+green "你的reality域名public_key: $public_key="
+
+echo "${private_key}" > private_key.txt
+echo "${public_key}" > public_key.txt	
+
+
 openssl ecparam -genkey -name prime256v1 -out "private.key"
 openssl req -new -x509 -days 3650 -key "private.key" -out "cert.pem" -subj "/CN=$USERNAME.serv00.net"
   cat > config.json << EOF
