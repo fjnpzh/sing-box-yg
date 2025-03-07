@@ -343,8 +343,8 @@ echo "${public_key}" > public_key.txt
             #public_key=_MDZMxP25PBSq1pzEFp_8gmYDsBhZQWxu8k42b9lxWE
             #private_key=wKfqglB6-9f0Tm1HjVWppfwc2IVcKMLTqkp_gS0OYGU
         #elif [ "$reym" = "time.is" ]; then
-            public_key=HZaK2aXcJXIMcu4PS09gAlWfuz3LLTRTNUecHfHPUwo
-            private_key=eOfO15kSOKvAuPJ-rBTWy9tCAe3BM2Jcbm9zyTVCClk
+            #public_key=HZaK2aXcJXIMcu4PS09gAlWfuz3LLTRTNUecHfHPUwo
+            #private_key=eOfO15kSOKvAuPJ-rBTWy9tCAe3BM2Jcbm9zyTVCClk
         #fi
 green "你的reality域名public_key: $public_key="
 
