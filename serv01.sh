@@ -49,7 +49,7 @@ read_uuid() {
 
 read_reym() {
 	yellow "方式一：(推荐)使用Serv00自带域名，不支持proxyip功能：输入回车"
-        yellow "方式二：使用CF域名(time.is、www.speedtest.net)，支持proxyip+非标端口反代ip功能：输入s"
+        yellow "方式二：使用CF域名(www.speedtest.net)，支持proxyip+非标端口反代ip功能：输入s"
         yellow "方式三：支持其他域名，注意要符合reality域名规则：输入域名"
         reading "请输入reality域名 【请选择 回车 或者 s 或者 输入域名】: " reym
         if [[ -z "$reym" ]]; then
@@ -206,7 +206,7 @@ sleep 2
         get_links
 	cd
         purple "************************************************************"
-        purple "Serv01-sb-yg脚本安装结束！再次进入脚本时，请输入快捷方式：sb"
+        purple "Serv00-sb-yg脚本安装结束！再次进入脚本时，请输入快捷方式：sb"
 	purple "************************************************************"
 }
 
@@ -222,8 +222,8 @@ uninstall_singbox() {
           #crontab rmcron >/dev/null 2>&1
           #rm rmcron
           purple "************************************************************"
-          purple "Serv01-sb-yg卸载完成！"
-          purple "欢迎继续使用脚本：bash <(curl -Ls https://raw.githubusercontent.com/fjnpzh/sing-box-yg/main/serv01.sh)"
+          purple "Serv00-sb-yg卸载完成！"
+          purple "欢迎继续使用脚本：bash <(curl -Ls https://raw.githubusercontent.com/yonggekkk/sing-box-yg/main/serv00.sh)"
           purple "************************************************************"
           ;;
         [Nn]) exit 0 ;;
@@ -244,8 +244,8 @@ reading "\n清理所有进程并清空所有安装内容，将退出ssh连接，
     #crontab rmcron >/dev/null 2>&1
     #rm rmcron
     purple "************************************************************"
-    purple "Serv01-sb-yg清理重置完成！"
-    purple "欢迎继续使用脚本：bash <(curl -Ls https://raw.githubusercontent.com/fjnpzh/sing-box-yg/main/serv01.sh)"
+    purple "Serv00-sb-yg清理重置完成！"
+    purple "欢迎继续使用脚本：bash <(curl -Ls https://raw.githubusercontent.com/yonggekkk/sing-box-yg/main/serv00.sh)"
     purple "************************************************************"
     find ~ -type f -exec chmod 644 {} \; 2>/dev/null
     find ~ -type d -exec chmod 755 {} \; 2>/dev/null
@@ -337,10 +337,6 @@ private_key=$(echo "${output}" | awk '/PrivateKey:/ {print $2}')
 public_key=$(echo "${output}" | awk '/PublicKey:/ {print $2}')
 echo "${private_key}" > private_key.txt
 echo "${public_key}" > public_key.txt
-#强加证书统一key,20250307 fjnpzh hugua
-#private_key=yJFnJzWgLgGzLrpzg2VQifRNKW0_XlvUnlf4ZDxqvks
-#public_key=U_vTHEtxu7Jdr0kfeKc7YWFZvfZ--SL5AkZP8yiZSVI
-
 openssl ecparam -genkey -name prime256v1 -out "private.key"
 openssl req -new -x509 -days 3650 -key "private.key" -out "cert.pem" -subj "/CN=$USERNAME.serv00.net"
   cat > config.json << EOF
@@ -615,9 +611,9 @@ vl_link="vless://$UUID@$IP:$vless_port?encryption=none&flow=xtls-rprx-vision&sec
 echo "$vl_link" > jh.txt
 vmws_link="vmess://$(echo "{ \"v\": \"2\", \"ps\": \"$snb-vmess-ws\", \"add\": \"$IP\", \"port\": \"$vmess_port\", \"id\": \"$UUID\", \"aid\": \"0\", \"scy\": \"auto\", \"net\": \"ws\", \"type\": \"none\", \"host\": \"\", \"path\": \"/$UUID-vm?ed=2048\", \"tls\": \"\", \"sni\": \"\", \"alpn\": \"\", \"fp\": \"\"}" | base64 -w0)"
 echo "$vmws_link" >> jh.txt
-vmatls_link="vmess://$(echo "{ \"v\": \"2\", \"ps\": \"$snb-vmess-ws-tls-argo\", \"add\": \"www.web.com\", \"port\": \"8443\", \"id\": \"$UUID\", \"aid\": \"0\", \"scy\": \"auto\", \"net\": \"ws\", \"type\": \"none\", \"host\": \"$argodomain\", \"path\": \"/$UUID-vm?ed=2048\", \"tls\": \"tls\", \"sni\": \"$argodomain\", \"alpn\": \"\", \"fp\": \"\"}" | base64 -w0)"
+vmatls_link="vmess://$(echo "{ \"v\": \"2\", \"ps\": \"$snb-vmess-ws-tls-argo\", \"add\": \"icook.hk\", \"port\": \"8443\", \"id\": \"$UUID\", \"aid\": \"0\", \"scy\": \"auto\", \"net\": \"ws\", \"type\": \"none\", \"host\": \"$argodomain\", \"path\": \"/$UUID-vm?ed=2048\", \"tls\": \"tls\", \"sni\": \"$argodomain\", \"alpn\": \"\", \"fp\": \"\"}" | base64 -w0)"
 echo "$vmatls_link" >> jh.txt
-vma_link="vmess://$(echo "{ \"v\": \"2\", \"ps\": \"$snb-vmess-ws-argo\", \"add\": \"www.web.com\", \"port\": \"8880\", \"id\": \"$UUID\", \"aid\": \"0\", \"scy\": \"auto\", \"net\": \"ws\", \"type\": \"none\", \"host\": \"$argodomain\", \"path\": \"/$UUID-vm?ed=2048\", \"tls\": \"\"}" | base64 -w0)"
+vma_link="vmess://$(echo "{ \"v\": \"2\", \"ps\": \"$snb-vmess-ws-argo\", \"add\": \"icook.hk\", \"port\": \"8880\", \"id\": \"$UUID\", \"aid\": \"0\", \"scy\": \"auto\", \"net\": \"ws\", \"type\": \"none\", \"host\": \"$argodomain\", \"path\": \"/$UUID-vm?ed=2048\", \"tls\": \"\"}" | base64 -w0)"
 echo "$vma_link" >> jh.txt
 hy2_link="hysteria2://$UUID@$IP:$hy2_port?sni=www.bing.com&alpn=h3&insecure=1#$snb-hy2"
 echo "$hy2_link" >> jh.txt
@@ -796,7 +792,7 @@ cat > sing_box.json <<EOF
         }
     },
 {
-            "server": "www.web.com",
+            "server": "icook.hk",
             "server_port": 8443,
             "tag": "vmess-tls-argo-$snb",
             "tls": {
@@ -823,7 +819,7 @@ cat > sing_box.json <<EOF
             "uuid": "$UUID"
         },
 {
-            "server": "www.web.com",
+            "server": "icook.hk",
             "server_port": 8880,
             "tag": "vmess-argo-$snb",
             "tls": {
@@ -1020,7 +1016,7 @@ proxies:
 
 - name: vmess-tls-argo-$snb                         
   type: vmess
-  server: www.web.com                        
+  server: icook.hk                        
   port: 8443                                     
   uuid: $UUID       
   alterId: 0
@@ -1036,7 +1032,7 @@ proxies:
 
 - name: vmess-argo-$snb                         
   type: vmess
-  server: www.web.com                        
+  server: icook.hk                        
   port: 8880                                     
   uuid: $UUID       
   alterId: 0
@@ -1295,7 +1291,7 @@ if [[ -e $WORKDIR/config.json ]]; then
       echo "export PATH=\"\$HOME/bin:\$PATH\"" >> "$HOME/.bashrc"
       source "$HOME/.bashrc"
   fi
-curl -sL https://raw.githubusercontent.com/fjnpzh/sing-box-yg/main/app.js -o "$keep_path"/app.js
+curl -sL https://raw.githubusercontent.com/yonggekkk/sing-box-yg/main/app.js -o "$keep_path"/app.js
 sed -i '' "15s/name/$snb/g" "$keep_path"/app.js
 sed -i '' "60s/key/$UUID/g" "$keep_path"/app.js
 sed -i '' "75s/name/$USERNAME/g" "$keep_path"/app.js
@@ -1335,7 +1331,7 @@ menu() {
    green "甬哥Github项目  ：github.com/fjnpzh"
    green "甬哥Blogger博客 ：ygkkk.blogspot.com"
    green "甬哥YouTube频道 ：www.youtube.com/@ygkkk"
-   green "Serv01-sb-yg三协议共存：vless-reality、Vmess-ws(Argo)、Hy2"
+   green "Serv00-sb-yg三协议共存：vless-reality、Vmess-ws(Argo)、Hy2"
    green "脚本快捷方式：sb"
    echo   "============================================================"
    green  "1. 一键安装 Serv01-sb-yg"
@@ -1360,7 +1356,7 @@ ym=("$HOSTNAME" "cache$nb.serv00.com" "web$nb.serv00.com")
 rm -rf ip.txt
 for host in "${ym[@]}"; do
 response=$(curl -sL --connect-timeout 5 --max-time 7 "https://ss.fkj.pp.ua/api/getip?host=$host")
-if [[ "$response" =~ ^$|unknown|not|error ]]; then
+if [[ "$response" =~ (unknown|not|error) ]]; then
 dig @8.8.8.8 +time=5 +short $host | sort -u >> $WORKDIR/ip.txt
 sleep 1  
 else
@@ -1373,7 +1369,9 @@ fi
 done <<< "$response"
 fi
 done
+if [[ ! "$response" =~ (unknown|not|error) ]]; then
 grep ':' $WORKDIR/ip.txt | sort -u -o $WORKDIR/ip.txt
+fi
 green "Serv00服务器名称：${snb}"
 echo
 green "当前可选择的IP如下："
@@ -1396,7 +1394,7 @@ if [ -f $WORKDIR/v ]; then
 if [ "$insV" = "$latestV" ]; then
 echo -e "当前 Serv01-sb-yg 脚本最新版：${purple}${insV}${re} (已安装)"
 else
-echo -e "当前 Serv01-sb-yg 脚本版本号：${purple}${insV}${re}"
+echo -e "当前 Serv00-sb-yg 脚本版本号：${purple}${insV}${re}"
 echo -e "检测到最新 Serv01-sb-yg 脚本版本号：${yellow}${latestV}${re} (可选择4进行更新)"
 echo -e "${yellow}$(curl -sL https://raw.githubusercontent.com/fjnpzh/sing-box-yg/main/sversion)${re}"
 fi
@@ -1440,8 +1438,8 @@ purple "http://${snb}.${USERNAME}.serv00.net"
 #green "Cron保活运行正常。打开 http://${USERNAME}.${USERNAME}.serv00.net/up 也可实时保活"
 #fi
 else
-echo -e "当前 Serv01-sb-yg 脚本版本号：${purple}${latestV}${re}"
-yellow "未安装 Serv01-sb-yg 脚本！请选择 1 安装"
+echo -e "当前 Serv00-sb-yg 脚本版本号：${purple}${latestV}${re}"
+yellow "未安装 Serv00-sb-yg 脚本！请选择 1 安装"
 fi
 #curl -sSL https://raw.githubusercontent.com/fjnpzh/sing-box-yg/main/serv01.sh -o serv01.sh && chmod +x serv01.sh
    echo -e "========================================================="
