@@ -611,9 +611,9 @@ vl_link="vless://$UUID@$IP:$vless_port?encryption=none&flow=xtls-rprx-vision&sec
 echo "$vl_link" > jh.txt
 vmws_link="vmess://$(echo "{ \"v\": \"2\", \"ps\": \"$snb-vmess-ws\", \"add\": \"$IP\", \"port\": \"$vmess_port\", \"id\": \"$UUID\", \"aid\": \"0\", \"scy\": \"auto\", \"net\": \"ws\", \"type\": \"none\", \"host\": \"\", \"path\": \"/$UUID-vm?ed=2048\", \"tls\": \"\", \"sni\": \"\", \"alpn\": \"\", \"fp\": \"\"}" | base64 -w0)"
 echo "$vmws_link" >> jh.txt
-vmatls_link="vmess://$(echo "{ \"v\": \"2\", \"ps\": \"$snb-vmess-ws-tls-argo\", \"add\": \"icook.hk\", \"port\": \"8443\", \"id\": \"$UUID\", \"aid\": \"0\", \"scy\": \"auto\", \"net\": \"ws\", \"type\": \"none\", \"host\": \"$argodomain\", \"path\": \"/$UUID-vm?ed=2048\", \"tls\": \"tls\", \"sni\": \"$argodomain\", \"alpn\": \"\", \"fp\": \"\"}" | base64 -w0)"
+vmatls_link="vmess://$(echo "{ \"v\": \"2\", \"ps\": \"$snb-vmess-ws-tls-argo\", \"add\": \"www.web.com\", \"port\": \"8443\", \"id\": \"$UUID\", \"aid\": \"0\", \"scy\": \"auto\", \"net\": \"ws\", \"type\": \"none\", \"host\": \"$argodomain\", \"path\": \"/$UUID-vm?ed=2048\", \"tls\": \"tls\", \"sni\": \"$argodomain\", \"alpn\": \"\", \"fp\": \"\"}" | base64 -w0)"
 echo "$vmatls_link" >> jh.txt
-vma_link="vmess://$(echo "{ \"v\": \"2\", \"ps\": \"$snb-vmess-ws-argo\", \"add\": \"icook.hk\", \"port\": \"8880\", \"id\": \"$UUID\", \"aid\": \"0\", \"scy\": \"auto\", \"net\": \"ws\", \"type\": \"none\", \"host\": \"$argodomain\", \"path\": \"/$UUID-vm?ed=2048\", \"tls\": \"\"}" | base64 -w0)"
+vma_link="vmess://$(echo "{ \"v\": \"2\", \"ps\": \"$snb-vmess-ws-argo\", \"add\": \"www.web.com\", \"port\": \"8880\", \"id\": \"$UUID\", \"aid\": \"0\", \"scy\": \"auto\", \"net\": \"ws\", \"type\": \"none\", \"host\": \"$argodomain\", \"path\": \"/$UUID-vm?ed=2048\", \"tls\": \"\"}" | base64 -w0)"
 echo "$vma_link" >> jh.txt
 hy2_link="hysteria2://$UUID@$IP:$hy2_port?sni=www.bing.com&alpn=h3&insecure=1#$snb-hy2"
 echo "$hy2_link" >> jh.txt
@@ -792,7 +792,7 @@ cat > sing_box.json <<EOF
         }
     },
 {
-            "server": "icook.hk",
+            "server": "www.web.com",
             "server_port": 8443,
             "tag": "vmess-tls-argo-$snb",
             "tls": {
@@ -819,7 +819,7 @@ cat > sing_box.json <<EOF
             "uuid": "$UUID"
         },
 {
-            "server": "icook.hk",
+            "server": "www.web.com",
             "server_port": 8880,
             "tag": "vmess-argo-$snb",
             "tls": {
@@ -1016,7 +1016,7 @@ proxies:
 
 - name: vmess-tls-argo-$snb                         
   type: vmess
-  server: icook.hk                        
+  server: www.web.com                        
   port: 8443                                     
   uuid: $UUID       
   alterId: 0
@@ -1032,7 +1032,7 @@ proxies:
 
 - name: vmess-argo-$snb                         
   type: vmess
-  server: icook.hk                        
+  server: www.web.com                        
   port: 8880                                     
   uuid: $UUID       
   alterId: 0
