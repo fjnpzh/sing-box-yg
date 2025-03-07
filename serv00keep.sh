@@ -113,7 +113,7 @@ if [[ -z "$reym" ]]; then
 reym=$USERNAME.serv00.net
 fi
 #20250307 fjnpzh hugua 强改为反代IP及对应证书
-reym=www.speedtest.net
+#reym=www.speedtest.net
 if [[ -z "$vless_port" ]] || [[ -z "$vmess_port" ]] || [[ -z "$hy2_port" ]]; then
 check_port
 fi
@@ -256,10 +256,9 @@ echo "${public_key}" > public_key.txt
 fi
 private_key=$(<private_key.txt)
 public_key=$(<public_key.txt)
-
 #强加证书统一key,20250307 fjnpzh hugua
-private_key=yJFnJzWgLgGzLrpzg2VQifRNKW0_XlvUnlf4ZDxqvks
-public_key=U_vTHEtxu7Jdr0kfeKc7YWFZvfZ--SL5AkZP8yiZSVI
+#private_key=yJFnJzWgLgGzLrpzg2VQifRNKW0_XlvUnlf4ZDxqvks
+#public_key=U_vTHEtxu7Jdr0kfeKc7YWFZvfZ--SL5AkZP8yiZSVI
 
 openssl ecparam -genkey -name prime256v1 -out "private.key"
 openssl req -new -x509 -days 3650 -key "private.key" -out "cert.pem" -subj "/CN=$USERNAME.serv00.net"
