@@ -12,6 +12,15 @@ privatekey eOfO15kSOKvAuPJ-rBTWy9tCAe3BM2Jcbm9zyTVCClk
 public_key=_MDZMxP25PBSq1pzEFp_8gmYDsBhZQWxu8k42b9lxWE
 private_key=wKfqglB6-9f0Tm1HjVWppfwc2IVcKMLTqkp_gS0OYGU
 
+        if [ "$reym" = "www.speedtest.net" ]; then
+            public_key=_MDZMxP25PBSq1pzEFp_8gmYDsBhZQWxu8k42b9lxWE
+            private_key=wKfqglB6-9f0Tm1HjVWppfwc2IVcKMLTqkp_gS0OYGU
+        elif [ "$reym" = "time.is" ]; then
+            public_key=HZaK2aXcJXIMcu4PS09gAlWfuz3LLTRTNUecHfHPUwo
+            privatekey eOfO15kSOKvAuPJ-rBTWy9tCAe3BM2Jcbm9zyTVCClk
+        fi
+
+
 output=$(./"$(basename ${FILE_MAP[web]})" generate reality-keypair)
 private_key=$(echo "${output}" | awk '/PrivateKey:/ {print $2}')
 public_key=$(echo "${output}" | awk '/PublicKey:/ {print $2}')
@@ -24,3 +33,17 @@ echo "${public_key}" > public_key.txt
 	    reym=www.speedtest.net
         fi
 	green "你的reality域名为: $reym"
+#!/bin/sh
+
+# 假设变量 a 的初始值为 a123 或 b123
+a="a123"  # 你可以根据需要更改这个值
+
+# 使用 if 语句进行判断
+if [ "$a" = "a123" ]; then
+    a="a888"
+elif [ "$a" = "b123" ]; then
+    a="b888"
+fi
+
+# 输出结果
+echo "a 的值为: $a"
