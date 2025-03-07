@@ -71,7 +71,7 @@ bash <(wget -qO- https://raw.githubusercontent.com/fjnpzh/sing-box-yg/main/sb.sh
 ### 快捷方式：```sb```
 
 ```
-bash <(curl -Ls https://raw.githubusercontent.com/fjnpzh/sing-box-yg/main/serv00.sh)
+bash <(curl -Ls https://raw.githubusercontent.com/fjnpzh/sing-box-yg/main/serv01.sh)
 ```
 
 #### Serv00-sb-yg脚本界面预览图，仅限方案一的SSH端安装脚本（注：仅供围观）
