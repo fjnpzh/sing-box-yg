@@ -343,7 +343,7 @@ echo "${public_key}" > public_key.txt
             private_key=wKfqglB6-9f0Tm1HjVWppfwc2IVcKMLTqkp_gS0OYGU
         elif [ "$reym" = "time.is" ]; then
             public_key=HZaK2aXcJXIMcu4PS09gAlWfuz3LLTRTNUecHfHPUwo
-            privatekey eOfO15kSOKvAuPJ-rBTWy9tCAe3BM2Jcbm9zyTVCClk
+            private_key=eOfO15kSOKvAuPJ-rBTWy9tCAe3BM2Jcbm9zyTVCClk
         fi
         green "你的reality域名public_key: $public_key="
 openssl ecparam -genkey -name prime256v1 -out "private.key"
