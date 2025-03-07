@@ -223,7 +223,7 @@ uninstall_singbox() {
           #rm rmcron
           purple "************************************************************"
           purple "Serv00-sb-yg卸载完成！"
-          purple "欢迎继续使用脚本：bash <(curl -Ls https://raw.githubusercontent.com/fjnpzh/sing-box-yg/main/sev01.sh)"
+          purple "欢迎继续使用脚本：bash <(curl -Ls https://raw.githubusercontent.com/fjnpzh/sing-box-yg/main/serv01.sh)"
           purple "************************************************************"
           ;;
         [Nn]) exit 0 ;;
