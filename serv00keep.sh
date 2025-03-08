@@ -28,6 +28,7 @@ HOSTNAME=$(hostname)
 snb=$(hostname | awk -F '.' '{print $1}')
 
 #增加用的名 hugua 20250308
+snbok=$snb
 snb=$USERNAME
 
 nb=$(hostname | cut -d '.' -f 1 | tr -d 's')
@@ -1147,7 +1148,8 @@ done <<< "$portlist"
 fi
 check_port
 fi
-rm -rf $HOME/domains/${snb}.${USERNAME}.serv00.net/logs/*
+# hugua  snb-snbok
+rm -rf $HOME/domains/${snbok}.${USERNAME}.serv00.net/logs/*
 install_singbox() {
 cd $WORKDIR
 read_ip
