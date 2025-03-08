@@ -3,7 +3,7 @@
 re="\033[0m"
 red="\033[1;91m"
 green="\e[1;32m"
-yellow="\e[1;33m"
+yellow="\e[1;33m"$snb
 purple="\e[1;35m"
 red() { echo -e "\e[1;91m$1\033[0m"; }
 green() { echo -e "\e[1;32m$1\033[0m"; }
@@ -26,6 +26,9 @@ devil binexec on >/dev/null 2>&1
 USERNAME=$(whoami | tr '[:upper:]' '[:lower:]')
 HOSTNAME=$(hostname)
 snb=$(hostname | awk -F '.' '{print $1}')
+#增加用的名 hugua 20250308
+snb=$(whoami | tr '[:upper:]' '[:lower:]')
+
 nb=$(hostname | cut -d '.' -f 1 | tr -d 's')
 if [[ "$reset" =~ ^[Yy]$ ]]; then
 #crontab -l | grep -v "serv00keep" >rmcron
