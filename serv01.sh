@@ -13,6 +13,10 @@ USERNAME=$(whoami | tr '[:upper:]' '[:lower:]')
 HOSTNAME=$(hostname)
 WORKDIR="${HOME}/domains/${USERNAME}.serv00.net/logs"
 snb=$(hostname | awk -F '.' '{print $1}')
+
+#增加用的名 hugua 20250308
+snb=$USERNAME
+
 nb=$(hostname | cut -d '.' -f 1 | tr -d 's')
 devil www add ${USERNAME}.serv00.net php > /dev/null 2>&1
 FILE_PATH="${HOME}/domains/${USERNAME}.serv00.net/public_html"
