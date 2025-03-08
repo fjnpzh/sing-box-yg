@@ -2,6 +2,15 @@
 替换 yonggekkk/sing-box-yg 为 yonggekkk/fjnpzh
 替换 serv00.sh 为 serv01.sh
 
+serv00keep.sh修改
+#增加用户名为节点名称 hugua 20250308
+snbok=$(hostname | awk -F '.' '{print $1}')
+snb=$USERNAME
+#第1115行修改 rm -rf $HOME/domains/${snbok}.${USERNAME}.serv00.net/logs/*
+#第115行强制UUID hugua 20250308
+#UUID=2bbd9dc8-1a8a-4a2c-80e5-5cfb61636870
+
+
 #time.is  固定证书 hugua 2025
 
 public_key=HZaK2aXcJXIMcu4PS09gAlWfuz3LLTRTNUecHfHPUwo
