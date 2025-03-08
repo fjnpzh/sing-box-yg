@@ -15,7 +15,8 @@ WORKDIR="${HOME}/domains/${USERNAME}.serv00.net/logs"
 snb=$(hostname | awk -F '.' '{print $1}')
 
 #增加用的名 hugua 20250308
-snb=$USERNAME
+snbok=$snb
+#snb=$USERNAME
 
 nb=$(hostname | cut -d '.' -f 1 | tr -d 's')
 devil www add ${USERNAME}.serv00.net php > /dev/null 2>&1
@@ -342,10 +343,10 @@ public_key=$(echo "${output}" | awk '/PublicKey:/ {print $2}')
 
 
 #指定证书 hugua 20250307
-        #if [ "$reym" = "www.speedtest.net" ]; then
+        #if [ "$reym" == "www.speedtest.net" ]; then
             #public_key=_MDZMxP25PBSq1pzEFp_8gmYDsBhZQWxu8k42b9lxWE
             #private_key=wKfqglB6-9f0Tm1HjVWppfwc2IVcKMLTqkp_gS0OYGU
-        #elif [ "$reym" = "time.is" ]; then
+        #elif [ "$reym" == "time.is" ]; then
             #public_key=HZaK2aXcJXIMcu4PS09gAlWfuz3LLTRTNUecHfHPUwo
             #private_key=eOfO15kSOKvAuPJ-rBTWy9tCAe3BM2Jcbm9zyTVCClk
         #fi
@@ -627,15 +628,15 @@ get_argodomain() {
 get_links(){
 argodomain=$(get_argodomain)
 echo -e "\e[1;32mArgo域名：\e[1;35m${argodomain}\e[0m\n"
-vl_link="vless://$UUID@$IP:$vless_port?encryption=none&flow=xtls-rprx-vision&security=reality&sni=$reym&fp=chrome&pbk=$public_key&type=tcp&headerType=none#$snb-reality"
+vl_link="vless://$UUID@$IP:$vless_port?encryption=none&flow=xtls-rprx-vision&security=reality&sni=$reym&fp=chrome&pbk=$public_key&type=tcp&headerType=none#-reality"
 echo "$vl_link" > jh.txt
-vmws_link="vmess://$(echo "{ \"v\": \"2\", \"ps\": \"$snb-vmess-ws\", \"add\": \"$IP\", \"port\": \"$vmess_port\", \"id\": \"$UUID\", \"aid\": \"0\", \"scy\": \"auto\", \"net\": \"ws\", \"type\": \"none\", \"host\": \"\", \"path\": \"/$UUID-vm?ed=2048\", \"tls\": \"\", \"sni\": \"\", \"alpn\": \"\", \"fp\": \"\"}" | base64 -w0)"
+vmws_link="vmess://$(echo "{ \"v\": \"2\", \"ps\": \"-vmess-ws\", \"add\": \"$IP\", \"port\": \"$vmess_port\", \"id\": \"$UUID\", \"aid\": \"0\", \"scy\": \"auto\", \"net\": \"ws\", \"type\": \"none\", \"host\": \"\", \"path\": \"/$UUID-vm?ed=2048\", \"tls\": \"\", \"sni\": \"\", \"alpn\": \"\", \"fp\": \"\"}" | base64 -w0)"
 echo "$vmws_link" >> jh.txt
-vmatls_link="vmess://$(echo "{ \"v\": \"2\", \"ps\": \"$snb-vmess-ws-tls-argo\", \"add\": \"www.web.com\", \"port\": \"8443\", \"id\": \"$UUID\", \"aid\": \"0\", \"scy\": \"auto\", \"net\": \"ws\", \"type\": \"none\", \"host\": \"$argodomain\", \"path\": \"/$UUID-vm?ed=2048\", \"tls\": \"tls\", \"sni\": \"$argodomain\", \"alpn\": \"\", \"fp\": \"\"}" | base64 -w0)"
+vmatls_link="vmess://$(echo "{ \"v\": \"2\", \"ps\": \"-vmess-ws-tls-argo\", \"add\": \"www.web.com\", \"port\": \"2087\", \"id\": \"$UUID\", \"aid\": \"0\", \"scy\": \"auto\", \"net\": \"ws\", \"type\": \"none\", \"host\": \"$argodomain\", \"path\": \"/$UUID-vm?ed=2048\", \"tls\": \"tls\", \"sni\": \"$argodomain\", \"alpn\": \"\", \"fp\": \"\"}" | base64 -w0)"
 echo "$vmatls_link" >> jh.txt
-vma_link="vmess://$(echo "{ \"v\": \"2\", \"ps\": \"$snb-vmess-ws-argo\", \"add\": \"www.web.com\", \"port\": \"8880\", \"id\": \"$UUID\", \"aid\": \"0\", \"scy\": \"auto\", \"net\": \"ws\", \"type\": \"none\", \"host\": \"$argodomain\", \"path\": \"/$UUID-vm?ed=2048\", \"tls\": \"\"}" | base64 -w0)"
+vma_link="vmess://$(echo "{ \"v\": \"2\", \"ps\": \"-vmess-ws-argo\", \"add\": \"www.web.com\", \"port\": \"2095\", \"id\": \"$UUID\", \"aid\": \"0\", \"scy\": \"auto\", \"net\": \"ws\", \"type\": \"none\", \"host\": \"$argodomain\", \"path\": \"/$UUID-vm?ed=2048\", \"tls\": \"\"}" | base64 -w0)"
 echo "$vma_link" >> jh.txt
-hy2_link="hysteria2://$UUID@$IP:$hy2_port?sni=www.bing.com&alpn=h3&insecure=1#$snb-hy2"
+hy2_link="hysteria2://$UUID@$IP:$hy2_port?sni=www.bing.com&alpn=h3&insecure=1#-hy2"
 echo "$hy2_link" >> jh.txt
 baseurl=$(base64 -w 0 < jh.txt)
 
@@ -739,16 +740,16 @@ cat > sing_box.json <<EOF
       "default": "auto",
       "outbounds": [
         "auto",
-        "vless-$snb",
-        "vmess-$snb",
-        "hy2-$snb",
-"vmess-tls-argo-$snb",
-"vmess-argo-$snb"
+        "vless-",
+        "vmess-",
+        "hy2-",
+"vmess-tls-argo-",
+"vmess-argo-"
       ]
     },
     {
       "type": "vless",
-      "tag": "vless-$snb",
+      "tag": "vless-",
       "server": "$IP",
       "server_port": $vless_port,
       "uuid": "$UUID",
@@ -771,7 +772,7 @@ cat > sing_box.json <<EOF
 {
             "server": "$IP",
             "server_port": $vmess_port,
-            "tag": "vmess-$snb",
+            "tag": "vmess-",
             "tls": {
                 "enabled": false,
                 "server_name": "www.bing.com",
@@ -798,7 +799,7 @@ cat > sing_box.json <<EOF
 
     {
         "type": "hysteria2",
-        "tag": "hy2-$snb",
+        "tag": "hy2-",
         "server": "$IP",
         "server_port": $hy2_port,
         "password": "$UUID",
@@ -814,7 +815,7 @@ cat > sing_box.json <<EOF
 {
             "server": "www.web.com",
             "server_port": 8443,
-            "tag": "vmess-tls-argo-$snb",
+            "tag": "vmess-tls-argo-",
             "tls": {
                 "enabled": true,
                 "server_name": "$argodomain",
@@ -841,7 +842,7 @@ cat > sing_box.json <<EOF
 {
             "server": "www.web.com",
             "server_port": 8880,
-            "tag": "vmess-argo-$snb",
+            "tag": "vmess-argo-",
             "tls": {
                 "enabled": false,
                 "server_name": "$argodomain",
@@ -873,11 +874,11 @@ cat > sing_box.json <<EOF
       "tag": "auto",
       "type": "urltest",
       "outbounds": [
-        "vless-$snb",
-        "vmess-$snb",
-        "hy2-$snb",
-        "vmess-tls-argo-$snb",
-        "vmess-argo-$snb"
+        "vless-",
+        "vmess-",
+        "hy2-",
+        "vmess-tls-argo-",
+        "vmess-argo-"
       ],
       "url": "https://www.gstatic.com/generate_204",
       "interval": "1m",
@@ -993,7 +994,7 @@ dns:
       - 240.0.0.0/4
 
 proxies:
-- name: vless-reality-vision-$snb               
+- name: vless-reality-vision-               
   type: vless
   server: $IP                           
   port: $vless_port                                
@@ -1007,7 +1008,7 @@ proxies:
     public-key: $public_key                      
   client-fingerprint: chrome                  
 
-- name: vmess-ws-$snb                         
+- name: vmess-ws-                         
   type: vmess
   server: $IP                       
   port: $vmess_port                                     
@@ -1023,7 +1024,7 @@ proxies:
     headers:
       Host: www.bing.com                     
 
-- name: hysteria2-$snb                            
+- name: hysteria2-                            
   type: hysteria2                                      
   server: $IP                               
   port: $hy2_port                                
@@ -1034,7 +1035,7 @@ proxies:
   skip-cert-verify: true
   fast-open: true
 
-- name: vmess-tls-argo-$snb                         
+- name: vmess-tls-argo-                         
   type: vmess
   server: www.web.com                        
   port: 8443                                     
@@ -1050,7 +1051,7 @@ proxies:
     headers:
       Host: $argodomain
 
-- name: vmess-argo-$snb                         
+- name: vmess-argo-                         
   type: vmess
   server: www.web.com                        
   port: 8880                                     
@@ -1073,11 +1074,11 @@ proxy-groups:
   interval: 300
   strategy: round-robin
   proxies:
-    - vless-reality-vision-$snb                              
-    - vmess-ws-$snb
-    - hysteria2-$snb
-    - vmess-tls-argo-$snb
-    - vmess-argo-$snb
+    - vless-reality-vision-                              
+    - vmess-ws-
+    - hysteria2-
+    - vmess-tls-argo-
+    - vmess-argo-
 
 - name: Auto
   type: url-test
@@ -1085,11 +1086,11 @@ proxy-groups:
   interval: 300
   tolerance: 50
   proxies:
-    - vless-reality-vision-$snb                             
-    - vmess-ws-$snb
-    - hysteria2-$snb
-    - vmess-tls-argo-$snb
-    - vmess-argo-$snb
+    - vless-reality-vision-                             
+    - vmess-ws-
+    - hysteria2-
+    - vmess-tls-argo-
+    - vmess-argo-
     
 - name: Select
   type: select
@@ -1097,11 +1098,11 @@ proxy-groups:
     - Balance                                         
     - Auto
     - DIRECT
-    - vless-reality-vision-$snb                              
-    - vmess-ws-$snb
-    - hysteria2-$snb
-    - vmess-tls-argo-$snb
-    - vmess-argo-$snb
+    - vless-reality-vision-                              
+    - vmess-ws-
+    - hysteria2-
+    - vmess-tls-argo-
+    - vmess-argo-
 rules:
   - GEOIP,LAN,DIRECT
   - GEOIP,CN,DIRECT
@@ -1312,9 +1313,10 @@ if [[ -e $WORKDIR/config.json ]]; then
       source "$HOME/.bashrc"
   fi
 curl -sL https://raw.githubusercontent.com/fjnpzh/sing-box-yg/main/app.js -o "$keep_path"/app.js
-sed -i '' "15s/name/$snb/g" "$keep_path"/app.js
+sed -i '' "15s/name//g" "$keep_path"/app.js
 sed -i '' "60s/key/$UUID/g" "$keep_path"/app.js
 sed -i '' "75s/name/$USERNAME/g" "$keep_path"/app.js
+# hugua 2025 $snb - snbok
 sed -i '' "75s/where/$snb/g" "$keep_path"/app.js
 curl -sSL https://raw.githubusercontent.com/fjnpzh/sing-box-yg/main/serv00keep.sh -o serv00keep.sh && chmod +x serv00keep.sh
 curl -sL https://raw.githubusercontent.com/fjnpzh/sing-box-yg/main/index.html -o "$FILE_PATH"/index.html
@@ -1348,7 +1350,7 @@ fi
 menu() {
    clear
    echo "============================================================"
-   green "甬哥Github项目  ：github.com/fjnpzh"
+   green "甬哥Github项目  ：github.com/fjnpzh 20250308"
    green "甬哥Blogger博客 ：ygkkk.blogspot.com"
    green "甬哥YouTube频道 ：www.youtube.com/@ygkkk"
    green "Serv00-sb-yg三协议共存：vless-reality、Vmess-ws(Argo)、Hy2"
@@ -1458,8 +1460,8 @@ purple "http://${snb}.${USERNAME}.serv00.net"
 #green "Cron保活运行正常。打开 http://${USERNAME}.${USERNAME}.serv00.net/up 也可实时保活"
 #fi
 else
-echo -e "当前 Serv00-sb-yg 脚本版本号：${purple}${latestV}${re}"
-yellow "未安装 Serv00-sb-yg 脚本！请选择 1 安装"
+echo -e "当前 Serv01-sb-yg 脚本版本号：${purple}${latestV}${re}"
+yellow "未安装 Serv01-sb-yg 脚本！请选择 1 安装"
 fi
 #curl -sSL https://raw.githubusercontent.com/fjnpzh/sing-box-yg/main/serv01.sh -o serv01.sh && chmod +x serv01.sh
    echo -e "========================================================="
