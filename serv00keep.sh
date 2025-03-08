@@ -28,7 +28,7 @@ HOSTNAME=$(hostname)
 snb=$(hostname | awk -F '.' '{print $1}')
 
 #增加用的名 hugua 20250308
-snbok=$snb
+snbok=$(hostname | awk -F '.' '{print $1}')
 snb=$USERNAME
 
 nb=$(hostname | cut -d '.' -f 1 | tr -d 's')
