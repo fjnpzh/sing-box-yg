@@ -29,7 +29,7 @@ snb=$(hostname | awk -F '.' '{print $1}')
 #增加用的名 hugua 20250308
 snb=$(whoami | tr '[:upper:]' '[:lower:]')
 
-nb=$(hostname | cut -d '.' -f 1 | tr -d 's')
+nb=$USERNAME
 if [[ "$reset" =~ ^[Yy]$ ]]; then
 #crontab -l | grep -v "serv00keep" >rmcron
 #crontab rmcron >/dev/null 2>&1
