@@ -230,6 +230,7 @@ uninstall_singbox() {
           purple "Serv00-sb-yg卸载完成！"
           purple "欢迎继续使用脚本：bash <(curl -Ls https://raw.githubusercontent.com/fjnpzh/sing-box-yg/main/serv01.sh)"
           purple "************************************************************"
+	  curl -sSL https://raw.githubusercontent.com/fjnpzh/sing-box-yg/main/serv01.sh -o serv01.sh && chmod +x serv01.sh
           ;;
         [Nn]) exit 0 ;;
     	*) red "无效的选择，请输入y或n" && menu ;;
