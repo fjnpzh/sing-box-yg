@@ -11,7 +11,7 @@ yellow() { echo -e "\e[1;33m$1\033[0m"; }
 purple() { echo -e "\e[1;35m$1\033[0m"; }
 reading() { read -p "$(red "$1")" "$2"; }
 export LC_ALL=C
-export UUID=${UUID:-''}  
+export ${UUID:-''}  
 export ARGO_DOMAIN=${ARGO_DOMAIN:-''}   
 export ARGO_AUTH=${ARGO_AUTH:-''}     
 export vless_port=${vless_port:-''}    
@@ -32,7 +32,7 @@ snbok=$(hostname | awk -F '.' '{print $1}')
 snb=$USERNAME
 #第1115行修改 rm -rf $HOME/domains/${snbok}.${USERNAME}.serv00.net/logs/*
 #第115行强制UUID hugua 20250308
-#UUID=2bbd9dc8-1a8a-4a2c-80e5-5cfb61636870
+#2bbd9dc8-1a8a-4a2c-80e5-5cfb61636870
 
 nb=$(hostname | cut -d '.' -f 1 | tr -d 's')
 if [[ "$reset" =~ ^[Yy]$ ]]; then
@@ -113,12 +113,12 @@ okip(){
 uuidport(){
 if [[ -z "$UUID" ]]; then
 if [ ! -e UUID.txt ]; then
-UUID=$(uuidgen -r)
+$(uuidgen -r)
 #强制UUID hugua 20250308
 UUID=2bbd9dc8-1a8a-4a2c-80e5-5cfb61636870
 echo "$UUID" > UUID.txt
 else
-UUID=$(<UUID.txt)
+$(<UUID.txt)
 fi
 fi
 if [[ -z "$reym" ]]; then
