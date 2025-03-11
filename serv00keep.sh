@@ -115,7 +115,7 @@ if [[ -z "$UUID" ]]; then
 if [ ! -e UUID.txt ]; then
 $(uuidgen -r)
 #强制UUID hugua 20250308
-UUID="2bbd9dc8-1a8a-4a2c-80e5-5cfb61636870"
+#UUID="2bbd9dc8-1a8a-4a2c-80e5-5cfb61636870"
 echo "$UUID" > UUID.txt
 else
 $(<UUID.txt)
