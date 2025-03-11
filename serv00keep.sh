@@ -31,7 +31,7 @@ snb=$(hostname | awk -F '.' '{print $1}')
 snbok=$(hostname | awk -F '.' '{print $1}')
 snb=$USERNAME
 #第1115行修改 rm -rf $HOME/domains/${snbok}.${USERNAME}.serv00.net/logs/*
-#第115行强制UUID hugua 20250308
+#第115行强制 hugua 20250308
 #2bbd9dc8-1a8a-4a2c-80e5-5cfb61636870
 
 nb=$(hostname | cut -d '.' -f 1 | tr -d 's')
@@ -113,9 +113,9 @@ okip(){
 uuidport(){
 if [[ -z "$UUID" ]]; then
 if [ ! -e UUID.txt ]; then
-$(uuidgen -r)
+UUID=$(uuidgen -r)
 #强制UUID hugua 20250308
-#UUID="2bbd9dc8-1a8a-4a2c-80e5-5cfb61636870"
+UUID=2bbd9dc8-1a8a-4a2c-80e5-5cfb61636870
 echo "$UUID" > UUID.txt
 else
 $(<UUID.txt)
