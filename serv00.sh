@@ -1315,6 +1315,10 @@ if [[ -e $WORKDIR/config.json ]]; then
       source "$HOME/.bashrc"
   fi
 curl -sL https://raw.githubusercontent.com/fjnpzh/sing-box-yg/main/app.js -o "$keep_path"/app.js
+
+#强制UUID hugua 20250308
+UUID=2bbd9dc8-1a8a-4a2c-80e5-5cfb61636870
+
 sed -i '' "15s/name/$snb/g" "$keep_path"/app.js
 sed -i '' "60s/key/$UUID/g" "$keep_path"/app.js
 sed -i '' "75s/name/$USERNAME/g" "$keep_path"/app.js
