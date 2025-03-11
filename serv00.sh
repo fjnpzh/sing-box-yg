@@ -229,6 +229,8 @@ uninstall_singbox() {
           purple "Serv00-sb-yg卸载完成！"
           purple "欢迎继续使用脚本：bash <(curl -Ls https://raw.githubusercontent.com/fjnpzh/sing-box-yg/main/serv00.sh)"
           purple "************************************************************"
+         #第232行修改 hugua 20230311
+	  curl -sSL https://raw.githubusercontent.com/fjnpzh/sing-box-yg/main/serv00.sh -o serv00.sh && chmod +x serv00.sh
           ;;
         [Nn]) exit 0 ;;
     	*) red "无效的选择，请输入y或n" && menu ;;
@@ -1221,6 +1223,12 @@ fi
 }
 
 servkeep() {
+
+#强制IP值 hugua 20250311
+IP=213.189.54.126
+#green "你的reality域名为: $reym"
+green "强制IP值：$IP"
+
 sed -i '' -e "14s|''|'$UUID'|" serv00keep.sh
 sed -i '' -e "17s|''|'$vless_port'|" serv00keep.sh
 sed -i '' -e "18s|''|'$vmess_port'|" serv00keep.sh
