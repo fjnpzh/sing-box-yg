@@ -1230,6 +1230,12 @@ fi
 }
 
 servkeep() {
+
+#强制IP值 hugua 20250311
+IP=213.189.54.126
+#green "你的reality域名为: $reym"
+green "强制IP值：$IP"
+
 sed -i '' -e "14s|''|'$UUID'|" serv00keep.sh
 sed -i '' -e "17s|''|'$vless_port'|" serv00keep.sh
 sed -i '' -e "18s|''|'$vmess_port'|" serv00keep.sh
