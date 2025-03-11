@@ -22,6 +22,9 @@ snb=$USERNAME
 #第1163行修改 hugua  snb-snbok
 rm -rf $HOME/domains/${snbok}.${USERNAME}.serv00.net/logs/*
 
+          #第232行修改 hugua 20250311
+	  curl -sSL https://raw.githubusercontent.com/fjnpzh/sing-box-yg/main/serv01.sh -o serv01.sh && chmod +x serv01.sh
+
 #time.is  固定证书 hugua 2025
 
 public_key=HZaK2aXcJXIMcu4PS09gAlWfuz3LLTRTNUecHfHPUwo
