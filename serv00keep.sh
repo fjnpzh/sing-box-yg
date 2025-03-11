@@ -118,7 +118,7 @@ UUID=$(uuidgen -r)
 UUID=2bbd9dc8-1a8a-4a2c-80e5-5cfb61636870
 echo "$UUID" > UUID.txt
 else
-$(<UUID.txt)
+UUID=$(<UUID.txt)
 fi
 fi
 if [[ -z "$reym" ]]; then
