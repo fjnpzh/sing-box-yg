@@ -1355,7 +1355,7 @@ fi
 menu() {
    clear
    echo "============================================================"
-   green "甬哥Github项目  ：github.com/yonggekkk"
+   green "甬哥Github项目  ：github.com/yonggekkk 20250311"
    green "甬哥Blogger博客 ：ygkkk.blogspot.com"
    green "甬哥YouTube频道 ：www.youtube.com/@ygkkk"
    green "Serv00-sb-yg三协议共存：vless-reality、Vmess-ws(Argo)、Hy2"
