@@ -467,6 +467,8 @@ else
     sleep 5
 if pgrep -x "$sbb" > /dev/null; then
     green "$sbb 主进程已启动"
+    # hugua 20250311
+    green "当前使用IP：$IP" 
 else
     red "$sbb 主进程未启动, 重启中..."
     pkill -x "$sbb"
@@ -477,6 +479,8 @@ fi
 fi
 else
 green "主进程已启动"
+# hugua 20250311
+green "当前使用IP：$IP"
 fi
 cfgo() {
 rm -rf boot.log
