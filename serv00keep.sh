@@ -27,6 +27,9 @@ USERNAME=$(whoami | tr '[:upper:]' '[:lower:]')
 HOSTNAME=$(hostname)
 snb=$(hostname | awk -F '.' '{print $1}')
 
+#强制IP值 hugua 20250311
+IP=213.189.54.126
+green "强制IP值：$IP"
 #增加用户名为节点名称 hugua 20250308
 snbok=$(hostname | awk -F '.' '{print $1}')
 snb=$USERNAME
