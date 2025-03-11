@@ -11,13 +11,16 @@ snb=$USERNAME
 #UUID=2bbd9dc8-1a8a-4a2c-80e5-5cfb61636870
 #强制IP值 hugua 20250311
 IP=213.189.54.126
-#green "你的reality域名为: $reym"
 green "强制IP值：$IP"
 
 serv01.sh修改
+
 #增加用户名为节点名称 hugua 20250308
 snbok=$snb
 #snb=$USERNAME
+
+#第1163行修改 hugua  snb-snbok
+rm -rf $HOME/domains/${snbok}.${USERNAME}.serv00.net/logs/*
 
 #time.is  固定证书 hugua 2025
 
@@ -30,14 +33,14 @@ public_key=_MDZMxP25PBSq1pzEFp_8gmYDsBhZQWxu8k42b9lxWE
 private_key=wKfqglB6-9f0Tm1HjVWppfwc2IVcKMLTqkp_gS0OYGU
 
 #指定证书 hugua 20250307
-        if [ "$reym" = "www.speedtest.net" ]; then
-            public_key=_MDZMxP25PBSq1pzEFp_8gmYDsBhZQWxu8k42b9lxWE
-            private_key=wKfqglB6-9f0Tm1HjVWppfwc2IVcKMLTqkp_gS0OYGU
-        elif [ "$reym" = "time.is" ]; then
-            public_key=HZaK2aXcJXIMcu4PS09gAlWfuz3LLTRTNUecHfHPUwo
-            private_key=eOfO15kSOKvAuPJ-rBTWy9tCAe3BM2Jcbm9zyTVCClk
-        fi
-        green "你的reality域名public_key: $public_key="
+if [ "$reym" = "www.speedtest.net" ]; then
+    public_key=_MDZMxP25PBSq1pzEFp_8gmYDsBhZQWxu8k42b9lxWE
+    private_key=wKfqglB6-9f0Tm1HjVWppfwc2IVcKMLTqkp_gS0OYGU
+elif [ "$reym" = "time.is" ]; then
+    public_key=HZaK2aXcJXIMcu4PS09gAlWfuz3LLTRTNUecHfHPUwo
+    private_key=eOfO15kSOKvAuPJ-rBTWy9tCAe3BM2Jcbm9zyTVCClk
+fi
+green "你的reality域名public_key: $public_key="
 
 output=$(./"$(basename ${FILE_MAP[web]})" generate reality-keypair)
 private_key=$(echo "${output}" | awk '/PrivateKey:/ {print $2}')
