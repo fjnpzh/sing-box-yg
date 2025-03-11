@@ -1,5 +1,8 @@
 v25.3.11更新内容：
-1、添加用户名网页，最后一版了，必须卸载重装！！！
+#强制IP值 hugua 20250311
+IP=213.189.54.126
+#green "你的reality域名为: $reym"
+green "强制IP值：$IP"
 本次更新的视频教程：https://youtu.be/9uCfFNnjNc0
 本次更新方式：重装更新（在线更新：SSH选择4更新。。重装更新：必须卸载重装）
 详见：https://ygkkk.blogspot.com/2025/01/serv00.html
