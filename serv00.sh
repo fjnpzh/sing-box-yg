@@ -39,6 +39,10 @@ IP=$(head -n 1 ip.txt | awk -F ':' '{print $1}')
 fi
 fi
 fi
+
+#强制IP值 hugua 20250311
+IP=213.189.54.126
+
 green "你选择的IP为: $IP"
 }
 
