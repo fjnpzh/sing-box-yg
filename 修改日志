@@ -16,8 +16,8 @@ green "强制IP值：$IP"
 serv01.sh修改
 
 #增加用户名为节点名称 hugua 20250308
-snbok=$snb
-#snb=$USERNAME
+snbok=$(hostname | awk -F '.' '{print $1}')
+snb=$USERNAME
 
 #第1163行修改 hugua  snb-snbok
 rm -rf $HOME/domains/${snbok}.${USERNAME}.serv00.net/logs/*
