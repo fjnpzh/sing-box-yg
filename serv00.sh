@@ -61,7 +61,7 @@ read_reym() {
 	    reym=$USERNAME.serv00.net
 	elif [[ "$reym" == "s" || "$reym" == "S" ]]; then
          #time.is  固定证书 hugua 2025
-	    reym=tims.is
+	    reym=time.is
         fi
 	green "你的reality域名为: $reym"
 }
