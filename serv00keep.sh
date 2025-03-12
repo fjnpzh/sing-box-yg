@@ -576,7 +576,7 @@ get_links(){
 argodomain=$(get_argodomain)
 echo -e "\e[1;32mArgo域名：\e[1;35m${argodomain}\e[0m\n"
 #hugua 20250312 v2rayN
-vl_link1="vless://2bbd9dc8-1a8a-4a2c-80e5-5cfb61636870@www.web.com:2096?encryption=none&security=tls&sni=yg.fz.cloudns.ch&allowInsecure=1&type=ws&host=yg.fz.cloudns.ch&path=%2Fpyip%3D${IP}%3A2$vless_port#vless-fd-yg-$snb"
+vl_link1="vless://2bbd9dc8-1a8a-4a2c-80e5-5cfb61636870@www.web.com:2096?encryption=none&security=tls&sni=hk.938280.xyz&allowInsecure=1&type=ws&host=hk.938280.xyz&path=%2Fpyip%3D${IP}%3A2$vless_port#vless-fd-yg-$snb"
 echo "$vl_link1" > jh.txt
 
 vl_link="vless://$UUID@$IP:$vless_port?encryption=none&flow=xtls-rprx-vision&security=reality&sni=$reym&fp=chrome&pbk=$public_key&type=tcp&headerType=none#$snb-reality"
@@ -967,11 +967,11 @@ proxies:
   udp: false
   tls: true
   network: ws
-  servername: yg.fz.cloudns.ch
+  servername: hk.938280.xyz
   ws-opts:
     path: "/pyip=${IP}:$vless_port"
     headers:
-      Host: yg.fz.cloudns.ch
+      Host: hk.938280.xyz
 - name: vmess-ws-$snb                         
   type: vmess
   server: $IP                       
