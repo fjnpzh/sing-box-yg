@@ -953,8 +953,21 @@ proxies:
   servername: $reym                 
   reality-opts: 
     public-key: $public_key                      
-  client-fingerprint: chrome                  
-
+  client-fingerprint: chrome   
+#hugua 20250312
+- name: vless-fd-yg-$snb
+  type: vless
+  server: www.web.com
+  port: 2087
+  uuid: 2bbd9dc8-1a8a-4a2c-80e5-5cfb61636870
+  udp: false
+  tls: true
+  network: ws
+  servername: yg.fz.cloudns.ch
+  ws-opts:
+    path: "/pyip=${IP}:$vless_port"
+    headers:
+      Host: yg.fz.cloudns.ch
 - name: vmess-ws-$snb                         
   type: vmess
   server: $IP                       
@@ -1026,7 +1039,7 @@ proxy-groups:
     - hysteria2-$snb
     - vmess-tls-argo-$snb
     - vmess-argo-$snb
-
+    - vless-fd-yg-$snb
 - name: Auto
   type: url-test
   url: https://www.gstatic.com/generate_204
@@ -1038,7 +1051,7 @@ proxy-groups:
     - hysteria2-$snb
     - vmess-tls-argo-$snb
     - vmess-argo-$snb
-    
+    - vless-fd-yg-$snb    
 - name: Select
   type: select
   proxies:
@@ -1050,6 +1063,7 @@ proxy-groups:
     - hysteria2-$snb
     - vmess-tls-argo-$snb
     - vmess-argo-$snb
+    - vless-fd-yg-$snb
 rules:
   - GEOIP,LAN,DIRECT
   - GEOIP,CN,DIRECT
