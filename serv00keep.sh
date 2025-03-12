@@ -761,7 +761,7 @@ cat > sing_box.json <<EOF
     },
 {
             "server": "www.web.com",
-            "server_port": 8443,
+            "server_port": 2087,
             "tag": "vmess-tls-argo-$snb",
             "tls": {
                 "enabled": true,
@@ -788,7 +788,7 @@ cat > sing_box.json <<EOF
         },
 {
             "server": "www.web.com",
-            "server_port": 8880,
+            "server_port": 2095,
             "tag": "vmess-argo-$snb",
             "tls": {
                 "enabled": false,
@@ -985,7 +985,7 @@ proxies:
 - name: vmess-tls-argo-$snb                         
   type: vmess
   server: www.web.com                        
-  port: 8443                                     
+  port: 2087                                     
   uuid: $UUID       
   alterId: 0
   cipher: auto
@@ -1001,7 +1001,7 @@ proxies:
 - name: vmess-argo-$snb                         
   type: vmess
   server: www.web.com                        
-  port: 8880                                     
+  port: 2095                                     
   uuid: $UUID       
   alterId: 0
   cipher: auto
