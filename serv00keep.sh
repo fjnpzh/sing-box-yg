@@ -576,8 +576,8 @@ get_links(){
 argodomain=$(get_argodomain)
 echo -e "\e[1;32mArgo域名：\e[1;35m${argodomain}\e[0m\n"
 #hugua 20250312 v2rayN
-vl_link="vless://2bbd9dc8-1a8a-4a2c-80e5-5cfb61636870@www.web.com:2096?encryption=none&security=tls&sni=yg.fz.cloudns.ch&allowInsecure=1&type=ws&host=yg.fz.cloudns.ch&path=%2Fpyip%3D${IP}%3A2$vless_port#vless-fd-yg-$snb"
-echo "$vl_link" > jh.txt
+vl_link1="vless://2bbd9dc8-1a8a-4a2c-80e5-5cfb61636870@www.web.com:2096?encryption=none&security=tls&sni=yg.fz.cloudns.ch&allowInsecure=1&type=ws&host=yg.fz.cloudns.ch&path=%2Fpyip%3D${IP}%3A2$vless_port#vless-fd-yg-$snb"
+echo "$vl_link1" > jh.txt
 
 vl_link="vless://$UUID@$IP:$vless_port?encryption=none&flow=xtls-rprx-vision&security=reality&sni=$reym&fp=chrome&pbk=$public_key&type=tcp&headerType=none#$snb-reality"
 echo "$vl_link" > jh.txt
@@ -1096,7 +1096,7 @@ $(dig @8.8.8.8 +time=5 +short "cache$nb.serv00.com" | sort -u)
 
 一、Vless-reality分享链接如下：
 $vl_link
-
+$vl_link1
 注意：如果之前输入的reality域名为CF域名，将激活以下功能：
 可应用在 https://github.com/yonggekkk/Cloudflare_vless_trojan 项目中创建CF vless/trojan 节点
 1、Proxyip(带端口)信息如下：
