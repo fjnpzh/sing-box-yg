@@ -250,8 +250,9 @@ fi
 inscertificate(){
 ymzs(){
 ym_vl_re=www.yahoo.com
+ym_vl_re=time.is
 echo
-blue "Vless-reality的SNI域名默认为 www.yahoo.com"
+blue "Vless-reality的SNI域名默认为 time.is"
 blue "Vmess-ws将开启TLS，Hysteria-2、Tuic-v5将使用 $(cat /root/ygkkkca/ca.log 2>/dev/null) 证书，并开启SNI证书验证"
 tlsyn=true
 ym_vm_ws=$(cat /root/ygkkkca/ca.log 2>/dev/null)
@@ -265,8 +266,9 @@ certificatep_tuic='/root/ygkkkca/private.key'
 
 zqzs(){
 ym_vl_re=www.yahoo.com
+ym_vl_re=time.is
 echo
-blue "Vless-reality的SNI域名默认为 www.yahoo.com"
+blue "Vless-reality的SNI域名默认为 time.is"
 blue "Vmess-ws将关闭TLS，Hysteria-2、Tuic-v5将使用bing自签证书，并关闭SNI证书验证"
 tlsyn=false
 ym_vm_ws=www.bing.com
@@ -410,6 +412,9 @@ blue "Tuic-v5端口：$port_tu"
 red "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
 green "四、自动生成各个协议统一的uuid (密码)"
 uuid=$(/etc/s-box/sing-box generate uuid)
+#第413行强制UUID hugua 20250308
+UUID=2bbd9dc8-1a8a-4a2c-80e5-5cfb61636870
+
 blue "已确认uuid (密码)：${uuid}"
 blue "已确认Vmess的path路径：${uuid}-vm"
 }
@@ -3416,8 +3421,8 @@ fi
 green "0：返回上层"
 readp "请选择：" menu
 if [ "$menu" = "1" ]; then
-readp "请输入vless-reality域名 (回车使用www.yahoo.com)：" menu
-ym_vl_re=${menu:-www.yahoo.com}
+readp "请输入vless-reality域名 (回车使用time.is)：" menu
+ym_vl_re=${menu:-time.is}
 a=$(sed 's://.*::g' /etc/s-box/sb.json | jq -r '.inbounds[0].tls.server_name')
 b=$(sed 's://.*::g' /etc/s-box/sb.json | jq -r '.inbounds[0].tls.reality.handshake.server')
 c=$(cat /etc/s-box/vl_reality.txt | cut -d'=' -f5 | cut -d'&' -f1)
