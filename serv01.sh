@@ -629,6 +629,10 @@ get_argodomain() {
 get_links(){
 argodomain=$(get_argodomain)
 echo -e "\e[1;32mArgo域名：\e[1;35m${argodomain}\e[0m\n"
+#hugua 20250312 v2rayN
+vl_link="vless://2bbd9dc8-1a8a-4a2c-80e5-5cfb61636870@www.web.com:2096?encryption=none&security=tls&sni=yg.fz.cloudns.ch&allowInsecure=1&type=ws&host=yg.fz.cloudns.ch&path=%2Fpyip%3D${IP}%3A2$vless_port#vless-fd-yg-$snb"
+echo "$vl_link" > jh.txt
+
 vl_link="vless://$UUID@$IP:$vless_port?encryption=none&flow=xtls-rprx-vision&security=reality&sni=$reym&fp=chrome&pbk=$public_key&type=tcp&headerType=none#-reality"
 echo "$vl_link" > jh.txt
 vmws_link="vmess://$(echo "{ \"v\": \"2\", \"ps\": \"-vmess-ws\", \"add\": \"$IP\", \"port\": \"$vmess_port\", \"id\": \"$UUID\", \"aid\": \"0\", \"scy\": \"auto\", \"net\": \"ws\", \"type\": \"none\", \"host\": \"\", \"path\": \"/$UUID-vm?ed=2048\", \"tls\": \"\", \"sni\": \"\", \"alpn\": \"\", \"fp\": \"\"}" | base64 -w0)"
@@ -995,6 +999,22 @@ dns:
       - 240.0.0.0/4
 
 proxies:
+
+#hugua 20250312 clash-mate
+- name: vless-fd-yg-
+  type: vless
+  server: www.web.com
+  port: 2087
+  uuid: 2bbd9dc8-1a8a-4a2c-80e5-5cfb61636870
+  udp: false
+  tls: true
+  network: ws
+  servername: yg.fz.cloudns.ch
+  ws-opts:
+    path: "/pyip=${IP}:$vless_port"
+    headers:
+      Host: yg.fz.cloudns.ch
+      
 - name: vless-reality-vision-               
   type: vless
   server: $IP                           
@@ -1075,6 +1095,7 @@ proxy-groups:
   interval: 300
   strategy: round-robin
   proxies:
+    - vless-fd-yg-
     - vless-reality-vision-                              
     - vmess-ws-
     - hysteria2-
@@ -1087,6 +1108,7 @@ proxy-groups:
   interval: 300
   tolerance: 50
   proxies:
+    - vless-fd-yg-
     - vless-reality-vision-                             
     - vmess-ws-
     - hysteria2-
@@ -1096,6 +1118,7 @@ proxy-groups:
 - name: Select
   type: select
   proxies:
+    - vless-fd-yg-
     - Balance                                         
     - Auto
     - DIRECT
