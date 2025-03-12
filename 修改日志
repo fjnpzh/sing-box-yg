@@ -13,6 +13,45 @@ snb=$USERNAME
 IP=213.189.54.126
 green "强制IP值：$IP"
 
+#hugua 20250312 v2rayN
+vl_link="vless://2bbd9dc8-1a8a-4a2c-80e5-5cfb61636870@www.web.com:2096?encryption=none&security=tls&sni=yg.fz.cloudns.ch&allowInsecure=1&type=ws&host=yg.fz.cloudns.ch&path=%2Fpyip%3D${IP}%3A2$vless_port#vless-fd-yg-$snb"
+echo "$vl_link" > jh.txt
+
+#hugua 20250312 clash-mate
+- name: vless-fd-yg-$snb
+  type: vless
+  server: www.web.com
+  port: 2087
+  uuid: 2bbd9dc8-1a8a-4a2c-80e5-5cfb61636870
+  udp: false
+  tls: true
+  network: ws
+  servername: yg.fz.cloudns.ch
+  ws-opts:
+    path: "/pyip=${IP}:$vless_port"
+    headers:
+      Host: yg.fz.cloudns.ch
+
+  proxies:
+    - vless-fd-yg-$snb
+
+#hugua 20250312 singbox
+    {
+      "type": "vless",
+      "tag": "vless-fd-yg-$snbb",
+      "server": "www.web.com",
+      "server_port": "2087",
+      "uuid": "2bbd9dc8-1a8a-4a2c-80e5-5cfb61636870",
+      "tls": "true",
+      "network": "ws",
+      "servername": "yg.fz.cloudns.ch",
+      "ws-opts":{
+        "path": "/pyip=${IP}:$vless_port",
+        "headers":{
+          "Host": "yg.fz.cloudns.ch"}
+      }
+    },
+
 serv01.sh修改
 
 #增加用户名为节点名称 hugua 20250308
