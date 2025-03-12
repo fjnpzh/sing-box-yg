@@ -14,7 +14,7 @@ IP=213.189.54.126
 green "强制IP值：$IP"
 
 #hugua 20250312 v2rayN
-vl_link1="vless://2bbd9dc8-1a8a-4a2c-80e5-5cfb61636870@www.web.com:2096?encryption=none&security=tls&sni=yg.fz.cloudns.ch&allowInsecure=1&type=ws&host=yg.fz.cloudns.ch&path=%2Fpyip%3D${IP}%3A$vless_port#vless-fd-yg-$snb"
+vl_link1="vless://2bbd9dc8-1a8a-4a2c-80e5-5cfb61636870@www.web.com:2096?encryption=none&security=tls&sni=yg.fz.cloudns.biz&allowInsecure=1&type=ws&host=yg.fz.cloudns.biz&path=%2Fpyip%3D${IP}%3A$vless_port#vless-fd-yg-$snb"
 echo "$vl_link1" >> jh.txt
 
 #hugua 20250312 clash-mate
@@ -26,11 +26,11 @@ echo "$vl_link1" >> jh.txt
   udp: false
   tls: true
   network: ws
-  servername: yg.fz.cloudns.ch
+  servername: yg.fz.cloudns.biz
   ws-opts:
     path: "/pyip=${IP}:$vless_port"
     headers:
-      Host: yg.fz.cloudns.ch
+      Host: yg.fz.cloudns.biz
 
   proxies:
     - vless-fd-yg-$snb
@@ -44,11 +44,11 @@ echo "$vl_link1" >> jh.txt
       "uuid": "2bbd9dc8-1a8a-4a2c-80e5-5cfb61636870",
       "tls": "true",
       "network": "ws",
-      "servername": "yg.fz.cloudns.ch",
+      "servername": "yg.fz.cloudns.biz",
       "ws-opts":{
         "path": "/pyip=${IP}:$vless_port",
         "headers":{
-          "Host": "yg.fz.cloudns.ch"}
+          "Host": "yg.fz.cloudns.biz"}
       }
     },
 
